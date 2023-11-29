@@ -1,13 +1,13 @@
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef WRONG_CAT_HPP
+# define WRONG_CAT_HPP
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class WrongCat : public Animal
+class WrongCat : public WrongAnimal
 {
 	public:
 		WrongCat(void);
-		WrongCat(Animal const & src);
+		WrongCat(WrongCat const & src);
 		virtual ~WrongCat(void);
 		WrongCat & operator=(WrongCat const & rhs);
 

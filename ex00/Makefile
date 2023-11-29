@@ -1,10 +1,10 @@
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp
+SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 OBJS = $(SRCS:.cpp=.o)
-HDRS = Animal.hpp Cat.hpp Dog.hpp
+HDRS = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = fragtrap
+NAME = polymorphism
 
 all: $(NAME)
 
