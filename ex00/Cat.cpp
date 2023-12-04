@@ -14,14 +14,14 @@
 
 Cat::Cat(void)
 {
-	std::cout << "Cat has been created" << std::endl;
 	this->_type = "Cat";
+	std::cout << "Cat has been created" << std::endl;
 }
 
 Cat::Cat(Cat const &src)
 {
-	std::cout << "Copied Cat has been created" << std::endl;
 	this->_type = src.getType();
+	std::cout << "Copied Cat has been created" << std::endl;
 }
 
 Cat::~Cat()

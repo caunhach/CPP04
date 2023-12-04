@@ -24,11 +24,11 @@ class WrongAnimal
 		WrongAnimal(void);
 		WrongAnimal(std::string const &type);
 		WrongAnimal(WrongAnimal const & src);
-		virtual ~WrongAnimal(void);
+		~WrongAnimal(void);
 		WrongAnimal & operator=(WrongAnimal const & rhs);
 
 		std::string	const		&getType(void) const;
-		virtual void			makeSound(void) const;
+		void			makeSound(void) const;
 };
 
 #endif

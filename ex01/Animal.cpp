@@ -14,20 +14,20 @@
 
 Animal::Animal()
 {
-	std::cout << "Animal has been created" << std::endl;
 	this->_type = "Animal";
+	std::cout << "Animal has been created" << std::endl;
 }
 
 Animal::Animal(std::string const &type)
 {
-	std::cout << "Animal : " << type << " has been created" << std::endl;
 	this->_type = type;
+	std::cout << "Animal : " << type << " has been created" << std::endl;
 }
 
 Animal::Animal(Animal const &src)
 {
-	std::cout << "Copied Animal has been created" << std::endl;
 	this->_type = src.getType();
+	std::cout << "Copied Animal has been created" << std::endl;
 }
 
 Animal::~Animal()
@@ -41,7 +41,7 @@ Animal & Animal::operator=(Animal const & rhs)
 	return (*this);
 }
 
-void Animal::makeSound() const
+void Animal::makeSound(void) const
 {
 	std::cout << "... ..." << std::endl;
 }

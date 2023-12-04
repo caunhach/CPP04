@@ -25,6 +25,8 @@ class Brain
 		~Brain(void);
 		Brain &operator=(Brain const &rhs);
 		std::string	*getIdeas(void) const;
+		void	displayIdeas(void) const;
+		void	setIdeas(std::string const &idea);
 };
 
 #endif
