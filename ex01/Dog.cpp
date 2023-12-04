@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: caunhach <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/04 15:44:41 by caunhach          #+#    #+#             */
+/*   Updated: 2023/12/04 15:44:44 by caunhach         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Dog.hpp"
 
 Dog::Dog(void)
@@ -8,13 +20,13 @@ Dog::Dog(void)
 
 Dog::Dog(Dog const &src)
 {
-	std::cout << "Copied Cat has been created" << std::endl;
+	std::cout << "Copied Dog has been created" << std::endl;
 	this->_type = src.getType();
 }
 
 Dog::~Dog()
 {
-	std::cout << "Cat has been destroyed" << std::endl;
+	std::cout << "Dog has been destroyed" << std::endl;
 }
 
 Dog & Dog::operator=(Dog const & rhs)

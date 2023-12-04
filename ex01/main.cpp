@@ -1,8 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: caunhach <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/04 15:46:04 by caunhach          #+#    #+#             */
+/*   Updated: 2023/12/04 15:46:07 by caunhach         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 
 int		main(void)
 {
@@ -18,19 +28,6 @@ int		main(void)
 	delete j;
 	delete i;
 	delete meta;
-
-	std::cout << "\nWrongTest\n" << std::endl;
-
-	const WrongAnimal* wrongAnimal = new WrongAnimal();
-	const WrongAnimal* wrongCat = new WrongCat();
-
-	std::cout << wrongCat->getType() << " " << std::endl;
-
-	wrongAnimal->makeSound();
-	wrongCat->makeSound();
-
-	delete wrongAnimal;
-	delete wrongCat;
 
 	std::cout << "\nmoreTest\n" << std::endl;
 
