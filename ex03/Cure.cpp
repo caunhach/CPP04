@@ -14,24 +14,24 @@
 
 Cure::Cure() : AMateria("cure")
 {
-	std::cout << GREEN << "Cure has been created\n" << RESET;
+	// std::cout << GREEN << "Cure has been created\n" << RESET;
 }
 
 Cure::~Cure()
 {
-	std::cout << GREEN << "Cure has been destroyed\n" << RESET;
+	// std::cout << GREEN << "Cure has been destroyed\n" << RESET;
 }
 
-Cure::Cure(Cure const &src)
+Cure::Cure(Cure const &src): AMateria("cure")
 {
 	*this = src;
-	std::cout << GREEN << "Cure has been copied\n" << RESET;
+	// std::cout << GREEN << "Cure has been copied\n" << RESET;
 }
 
 Cure	&Cure::operator=(const Cure &rhs)
 {
 	_type = rhs.getType();
-	std::cout << GREEN << "Cure's operator has been called\n" << RESET;
+	// std::cout << GREEN << "Cure's operator has been called\n" << RESET;
 	return (*this);
 }
 

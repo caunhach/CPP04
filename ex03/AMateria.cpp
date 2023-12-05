@@ -12,33 +12,28 @@
 
 #include "AMateria.hpp"
 
-AMateria::AMateria()
-{
-	std::cout << GREEN << "AMateria has been created\n" << RESET;
-}
-
 AMateria::AMateria(std::string const & type)
 {
 	_type = type;
 	_equip = false;
-	std::cout << GREEN << "AMateria has been created\n" << RESET;
+	// std::cout << GREEN << "AMateria has been created\n" << RESET;
 }
 
 AMateria::~AMateria()
 {
-	std::cout << GREEN << "AMateria has been destroyed\n" << RESET;
+	// std::cout << GREEN << "AMateria has been destroyed\n" << RESET;
 }
 
 AMateria::AMateria(AMateria const & ref)
 {
 	_type = ref.getType();
-	std::cout << GREEN << "AMateria has been copied\n" << RESET;
+	// std::cout << GREEN << "AMateria has been copied\n" << RESET;
 }
 
 AMateria &AMateria::operator=(AMateria const &rhs)
 {
 	_type = rhs.getType();
-	std::cout << GREEN << "AMateria's operator has been called\n" << RESET;
+	// std::cout << GREEN << "AMateria's operator has been called\n" << RESET;
 	return (*this);
 }
 

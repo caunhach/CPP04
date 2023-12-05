@@ -29,16 +29,15 @@ class AMateria
 {
 	protected:
 		std::string	_type;
-		bool	_equip;
+		bool		_equip;
 	public:
-		AMateria();
 		AMateria(std::string const & type);
 		virtual ~AMateria();
 		AMateria(AMateria const & ref);
 		AMateria &operator=(AMateria const &rhs);
-		std::string const & getType() const; //Returns the materia type
+		std::string const & getType() const;
 		bool const & getEquip() const;
-		void setEquip(bool status);
+		void 		setEquip(bool status);
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target) = 0;
 };

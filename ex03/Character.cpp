@@ -17,7 +17,7 @@ Character::Character()
 	this->_name = "Player";
 	for (int i = 0; i < 4; i++)
 		_inventory[i] = 0;
-	std::cout << GREEN << "Character has been created\n" << RESET;
+	// std::cout << GREEN << "Character has been created\n" << RESET;
 }
 
 Character::Character(std::string const &name)
@@ -25,12 +25,17 @@ Character::Character(std::string const &name)
 	this->_name = name;
 	for (int i = 0; i < 4; i++)
 		_inventory[i] = 0;
-	std::cout << GREEN << "Character has been created\n" << RESET;
+	// std::cout << GREEN << "Character has been created\n" << RESET;
 }
 
 Character::~Character()
 {
-	std::cout << GREEN << "Character has been destroyed\n" << RESET;
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_inventory[i])
+			delete this->_inventory[i];
+	}
+	// std::cout << GREEN << "Character has been destroyed\n" << RESET;
 }
 
 Character::Character(Character const &src) : _name(src.getName() + ".copy")
@@ -40,7 +45,7 @@ Character::Character(Character const &src) : _name(src.getName() + ".copy")
 		if (src._inventory[i])
 			this->_inventory[i] = src._inventory[i]->clone();
 	}
-	std::cout << GREEN << "Character has been copied\n" << RESET;
+	// std::cout << GREEN << "Character has been copied\n" << RESET;
 }
 
 Character	&Character::operator=(Character const &rhs)
@@ -52,7 +57,7 @@ Character	&Character::operator=(Character const &rhs)
 		if (rhs._inventory[i])
 			this->_inventory[i] = rhs._inventory[i]->clone(); 
 	}
-	std::cout << GREEN << "Assignment operator of Character has been assigned\n" << RESET;
+	// std::cout << GREEN << "Assignment operator of Character has been assigned\n" << RESET;
 	return (*this);
 }
 
@@ -63,9 +68,14 @@ std::string const &Character::getName() const
 
 void	Character::equip(AMateria *m)
 {
-	if (m->getEquip())
+	if (!m)
 	{
-		std::cout << "can not equip Materia that's already in inventory\n";
+		// std::cout << "there is nothing in AMateria to equip\n";
+		return;
+	}
+	if (m->getEquip() == true)
+	{
+		// std::cout << "can not equip Materia that's already in inventory\n";
 		return;
 	}
 	for (int i = 0; i < 4; i++)
@@ -73,21 +83,29 @@ void	Character::equip(AMateria *m)
 		if (!_inventory[i])
 		{
 			_inventory[i] = m;
-			std::cout << m->getType() << " has been equiped by " << this->getName() << std::endl;
+			// std::cout << m->getType() << " has been equiped by " << this->getName() << std::endl;
 			m->setEquip(true);
 			return;
 		}
 	}
-	std::cout << "can not equip Materia because inventory full\n";
+	// std::cout << "can not equip Materia because inventory full\n";
 }
 
 void	Character::unequip(int idx)
 {
+	if (idx < 0 || idx >= 4)
+	{
+		std::cout << "Index " << idx << " is out of range" << std::endl;
+		return;
+	}
 	if (_inventory[idx])
 	{
+		std::cout << "Unequipped " << this->_inventory[idx]->getType() << " at index " << idx << std::endl;
 		_inventory[idx]->setEquip(false);
 		_inventory[idx] = NULL;
 	}
+	else
+		std::cout << "No item at index " << idx << std::endl;
 }
 
 void	Character::use(int idx, ICharacter &target)
@@ -103,7 +121,7 @@ void	Character::use(int idx, ICharacter &target)
 
 void	Character::showinventory(void)
 {
-	std::cout << "<" << this->getName() << ">\n" << std::endl;
+	std::cout << "\n<" << this->getName() << ">\n" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		if (_inventory[i] != 0)

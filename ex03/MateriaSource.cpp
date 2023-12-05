@@ -16,12 +16,17 @@ MateriaSource::MateriaSource()
 {
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = 0;
-	std::cout << GREEN << "MateriaSource has been created\n" << RESET;
+	// std::cout << GREEN << "MateriaSource has been created\n" << RESET;
 }
 
 MateriaSource::~MateriaSource()
 {
-	std::cout << GREEN << "MateriaSource has been destroyed\n" << RESET;
+	for(int i =0; i < 4; i++)
+	{
+		if (this->_inventory[i])
+			delete this->_inventory[i];
+	}
+	// std::cout << GREEN << "MateriaSource has been destroyed\n" << RESET;
 }
 
 MateriaSource::MateriaSource(MateriaSource const &src)
@@ -31,7 +36,7 @@ MateriaSource::MateriaSource(MateriaSource const &src)
 		if (src._inventory[i])
 			this->_inventory[i] = src._inventory[i]->clone();
 	}
-	std::cout << GREEN << "MateriaSource has been copied\n" << RESET;
+	// std::cout << GREEN << "MateriaSource has been copied\n" << RESET;
 }
 
 MateriaSource &MateriaSource::operator=(MateriaSource const &rhs)
@@ -43,7 +48,7 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &rhs)
 		if (rhs._inventory[i])
 			this->_inventory[i] = rhs._inventory[i]->clone();
 	}
-	std::cout << GREEN << "MateriaSource has been copied\n" << RESET;
+	// std::cout << GREEN << "MateriaSource has been copied\n" << RESET;
 	return (*this);
 }
 
@@ -54,11 +59,11 @@ void MateriaSource::learnMateria(AMateria *m)
 		i++;
 	if (i == 4)
 	{
-		std::cout << "Can't learn any more Materia";
+		// std::cout << "Can't learn any more Materia";
 		return ;
 	}
 	this->_inventory[i] = m;
-	std::cout << m->getType() << " has been learned\n";
+	// std::cout << m->getType() << " has been learned\n";
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
