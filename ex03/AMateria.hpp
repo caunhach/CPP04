@@ -17,18 +17,30 @@
 #include <string>
 #include "ICharacter.hpp"
 
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+
+class ICharacter;
+
 class AMateria
 {
 	protected:
 		std::string	_type;
+		bool	_equip;
 	public:
 		AMateria();
 		AMateria(std::string const & type);
 		virtual ~AMateria();
 		AMateria(AMateria const & ref);
+		AMateria &operator=(AMateria const &rhs);
 		std::string const & getType() const; //Returns the materia type
+		bool const & getEquip() const;
+		void setEquip(bool status);
 		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter& target);
+		virtual void use(ICharacter& target) = 0;
 };
 
 #endif

@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMATERIAL_HPP
-# define IMATERIAL_HPP
+#ifndef IMATERIA_HPP
+# define IMATERIA_HPP
 
 #include "ICharacter.hpp"
 

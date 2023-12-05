@@ -12,26 +12,26 @@
 
 #include "Cure.hpp"
 
-Cure::Cure()
+Cure::Cure() : AMateria("cure")
 {
-	_type = "cure";
-	std::cout << "Constructor of Cure called\n";
+	std::cout << GREEN << "Cure has been created\n" << RESET;
 }
 
 Cure::~Cure()
 {
-	std::cout << "Deconstructor of Cure called\n";
+	std::cout << GREEN << "Cure has been destroyed\n" << RESET;
 }
 
 Cure::Cure(Cure const &src)
 {
 	*this = src;
-	std::cout << "Copy constructor of Cure called\n";
+	std::cout << GREEN << "Cure has been copied\n" << RESET;
 }
 
 Cure	&Cure::operator=(const Cure &rhs)
 {
 	_type = rhs.getType();
+	std::cout << GREEN << "Cure's operator has been called\n" << RESET;
 	return (*this);
 }
 

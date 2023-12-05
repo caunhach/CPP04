@@ -12,26 +12,26 @@
 
 #include "Ice.hpp"
 
-Ice::Ice()
+Ice::Ice() : AMateria("ice")
 {
-	_type = "cure";
-	std::cout << "Constructor of Ice called\n";
+	std::cout << GREEN << "Ice has been created\n" << RESET;
 }
 
 Ice::~Ice()
 {
-	std::cout << "Deconstructor of Ice called\n";
+	std::cout << GREEN << "Ice has been destroyed\n" << RESET;
 }
 
 Ice::Ice(Ice const &src)
 {
 	*this = src;
-	std::cout << "Copy constructor of Ice called\n";
+	std::cout << GREEN << "Ice has been copied\n" << RESET;
 }
 
 Ice		&Ice::operator=(const Ice &rhs)
 {
 	_type = rhs.getType();
+	std::cout << GREEN << "Ice's operator has been called\n" << RESET;
 	return (*this);
 }
 
